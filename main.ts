@@ -40,9 +40,8 @@ export function substring (text: string, num: number, length: number) {
 export function read_from_to_letters (text: string, _: string) {
     if (_.length == 3) {
         return read_from_letter(text, "" + convertToText(index(text, read_untilfrom("until", _, "-")) + 1) + "-" + (index(text, read_untilfrom("from", _, "-")) + 1))
-    } else {
-        return ""
     }
+    return ""
 }
 //%block
 //% group="Location"
@@ -89,7 +88,7 @@ function parse_to_number (text9: string) {
 //%block
 //% group="Alphabet"
 export function numbers () {
-    return 1234567890
+    return convertToText(1234567890)
 }
 function read_from (text: string, _from: string) {
     if (_from.length == 1) {
