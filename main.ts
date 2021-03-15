@@ -1,3 +1,4 @@
+//% color=#bb8900 weight=100 icon="\uf035" block="Advanced Text"
 namespace hello {
    let temp_txt = ""
 //%block
