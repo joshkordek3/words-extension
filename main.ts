@@ -55,6 +55,7 @@ export function index (text: string, _this: string) {
 }
 //%block
 //% group="Reading"
+//% untilfrom.fieldOptions.data='[["until", until], ["from", from]]'
 export function read_untilfrom (untilfrom: string, text: string, text2: string) {
     if (untilfrom == "from") {
         return read_from(text, text2)
