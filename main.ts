@@ -1,6 +1,7 @@
 //% color=#bb8900 weight=100 icon="\uf035" block="Advanced Text"
 namespace hello {
    let temp_txt = ""
+   let temp_num = 0
 //%block
 //% group="Converting"
 export function extract_numbers_from (text: string) {
@@ -74,6 +75,21 @@ function read_until (read: string, find: string) {
 //% group="Reading"
 export function read_from_letter (text: string, num: string) {
     return substring(text, parseFloat(read_until(num, "-")) - 1, parseFloat(read_from(num, "-")) - parseFloat(read_until(num, "-")) + 1)
+}
+function parse_to_number (text9: string) {
+    temp_num = 0
+    for (let c of text9) {
+
+    }
+    for (let index2 = 0; index2 <= text9.length - 1; index2++) {
+      temp_num += extract_numbers_from(text9[index2])
+    }
+    return temp_num
+}
+//%block
+//% group="Alphabet"
+export function numbers () {
+    return 1234567890
 }
 function read_from (text: string, _from: string) {
     if (_from.length == 1) {
