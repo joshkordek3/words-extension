@@ -59,7 +59,7 @@ export function index (text: string, _this: string) {
 //% blockHidden=False
 //% untilfrom.fieldEditor=untilfrom.fieldOptions.decompileLiterals=true
 //% untilfrom.fieldOptions.data='[["until", until], ["from", from]]'
-//% block="set game score $untilfrom"
+//% block="read $untilfrom"
 //% untilfrom.shadow="read_untilfrom"
 export function read_untilfrom (untilfrom: string, text: string, text2: string) {
     if (untilfrom == "from") {
