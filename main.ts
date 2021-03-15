@@ -1,7 +1,7 @@
-//% color=100 weight=10000 icon="\uf1ec" block="Advanced text"
 namespace hello {
    let temp_txt = ""
 //%block
+//% group="Converting"
 export function extract_numbers_from (text: string) {
     temp_txt = ""
     for (let index2 = 0; index2 <= text.length - 1; index2++) {
@@ -12,6 +12,7 @@ export function extract_numbers_from (text: string) {
     return parseFloat(temp_txt)
 }
 //%block
+//% group="Location"
 export function location_in_the_alphabet (letter: string) {
     if (letter.length == 1) {
         return index(alphabet(), letter) + 1
@@ -19,18 +20,21 @@ export function location_in_the_alphabet (letter: string) {
     return 0
 }
 //%block
+//% group="Alphabet"
 export function alphabet () {
     return "abcdefghijklmnopqrstuvwxyz"
 }
 //%block
+//% group="Reading"
 export function substring (text: string, num: number, length: number) {
     temp_txt = ""
-    for (let index2 = 0; index2 <= length - 1; index2++) {
-        temp_txt = "" + temp_txt + text.charAt(index2 + num)
+    for (let index22 = 0; index22 <= length - 1; index22++) {
+        temp_txt = "" + temp_txt + text.charAt(index22 + num)
     }
     return temp_txt
 }
 //%block
+//% group="Reading"
 export function read_from_to_letters (text: string, _: string) {
     if (_.length == 3) {
         return read_from_letter(text, "" + convertToText(index(text, read_untilfrom("until", _, "-")) + 1) + "-" + (index(text, read_untilfrom("from", _, "-")) + 1))
@@ -39,15 +43,17 @@ export function read_from_to_letters (text: string, _: string) {
     }
 }
 //%block
+//% group="Location"
 export function index (text: string, _this: string) {
-    for (let index2 = 0; index2 <= text.length - 1; index2++) {
-        if (text.charAt(index2) == _this) {
-            return index2
+    for (let index23 = 0; index23 <= text.length - 1; index23++) {
+        if (text.charAt(index23) == _this) {
+            return index23
         }
     }
     return -1
 }
 //%block
+//% group="Reading"
 export function read_untilfrom (untilfrom: string, text: string, text2: string) {
     if (untilfrom == "from") {
         return read_from(text, text2)
@@ -64,6 +70,7 @@ function read_until (read: string, find: string) {
     }
 }
 //%block
+//% group="Reading"
 export function read_from_letter (text: string, num: string) {
     return substring(text, parseFloat(read_until(num, "-")) - 1, parseFloat(read_from(num, "-")) - parseFloat(read_until(num, "-")) + 1)
 }
