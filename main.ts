@@ -57,7 +57,7 @@ export function index (text: string, _this: string) {
 //% group="Reading"
 //% blockId="$untilfrom"
 //% blockHidden=False
-//% untilfrom.fieldEditor=untilfrom.fieldOptions.decompileLiterals=true
+//% untilfrom.fieldEditor="numberdropdown" untilfrom.fieldOptions.decompileLiterals=true
 //% untilfrom.fieldOptions.data='[["until", until], ["from", from]]'
 //% block="read $untilfrom"
 //% untilfrom.shadow="read_untilfrom"
