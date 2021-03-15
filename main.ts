@@ -55,10 +55,9 @@ export function index (text: string, _this: string) {
 }
 //%block
 //% group="Reading"
-//% blockId=tennisScore block="$untilfrom"
+//% blockId="$untilfrom"
 //% blockHidden=False
-//% colorSecondary="#FFFFFF"
-//% untilfrom.fieldEditor="numberdropdown" untilfrom.fieldOptions.decompileLiterals=true
+//% untilfrom.fieldEditor=untilfrom.fieldOptions.decompileLiterals=true
 //% untilfrom.fieldOptions.data='[["until", until], ["from", from]]'
 //% block="set game score $untilfrom"
 //% untilfrom.shadow="read_untilfrom"
