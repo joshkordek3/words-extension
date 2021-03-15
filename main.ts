@@ -55,7 +55,13 @@ export function index (text: string, _this: string) {
 }
 //%block
 //% group="Reading"
+//% blockId=tennisScore block="$untilfrom"
+//% blockHidden=true
+//% colorSecondary="#FFFFFF"
+//% untilfrom.fieldEditor="numberdropdown" untilfrom.fieldOptions.decompileLiterals=true
 //% untilfrom.fieldOptions.data='[["until", until], ["from", from]]'
+//% block="set game score $untilfrom"
+//% untilfrom.shadow="read_untilfrom"
 export function read_untilfrom (untilfrom: string, text: string, text2: string) {
     if (untilfrom == "from") {
         return read_from(text, text2)
