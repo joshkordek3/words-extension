@@ -2,7 +2,7 @@
 namespace hello {
    let temp_txt = ""
    let temp_num = 0
-//%block
+//% block="extract numbers from $text"
 //% group="Converting"
 export function extract_numbers_from (text: string) {
     temp_txt = ""
@@ -13,7 +13,7 @@ export function extract_numbers_from (text: string) {
     }
     return parseFloat(temp_txt)
 }
-//%block
+//% block="$letter 's location in the alphabet"
 //% group="Location"
 export function location_in_the_alphabet (letter: string) {
     if (letter.length == 1) {
@@ -26,7 +26,7 @@ export function location_in_the_alphabet (letter: string) {
 export function alphabet () {
     return "abcdefghijklmnopqrstuvwxyz"
 }
-//%block
+//% block="substring of $text from $num of length $length"
 //% group="Reading"
 export function substring (text: string, num: number, length: number) {
     temp_txt = ""
@@ -35,7 +35,7 @@ export function substring (text: string, num: number, length: number) {
     }
     return temp_txt
 }
-//%block
+//% block="read $text from $_ (ex: a-z)"
 //% group="Reading"
 export function read_from_to_letters (text: string, _: string) {
     if (_.length == 3) {
@@ -43,7 +43,7 @@ export function read_from_to_letters (text: string, _: string) {
     }
     return ""
 }
-//%block
+//% block="$text find index of $_this"
 //% group="Location"
 export function index (text: string, _this: string) {
     for (let index23 = 0; index23 <= text.length - 1; index23++) {
@@ -53,7 +53,7 @@ export function index (text: string, _this: string) {
     }
     return -1
 }
-//%block
+//% block="read $text $untilfrom (until/from) $text2"
 //% group="Reading"
 export function read_untilfrom (untilfrom: string, text: string, text2: string) {
     if (untilfrom == "from") {
@@ -70,16 +70,13 @@ function read_until (read: string, find: string) {
         return ""
     }
 }
-//%block
+//% block="read $text from $num (ex: 1-10)"
 //% group="Reading"
 export function read_from_letter (text: string, num: string) {
     return substring(text, parseFloat(read_until(num, "-")) - 1, parseFloat(read_from(num, "-")) - parseFloat(read_until(num, "-")) + 1)
 }
 function parse_to_number (text9: string) {
     temp_num = 0
-    for (let c of text9) {
-
-    }
     for (let index2 = 0; index2 <= text9.length - 1; index2++) {
       temp_num += extract_numbers_from(text9[index2])
     }
@@ -88,7 +85,7 @@ function parse_to_number (text9: string) {
 //%block
 //% group="Alphabet"
 export function numbers () {
-    return convertToText(1234567890)
+    return "1234567890"
 }
 function read_from (text: string, _from: string) {
     if (_from.length == 1) {
