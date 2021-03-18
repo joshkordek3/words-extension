@@ -13,6 +13,32 @@ export function extract_numbers_from (text: string) {
     }
     return parseFloat(temp_txt)
 }
+// block="read everything except for $extract s from $text"
+// group="Reading"
+export function extract__s_from (text: string, extract: string) {
+    temp_txt = ""
+    for (let index25 = 0; index25 <= text.length - 1; index25++) {
+        temp_txt2 = text.charAt(index25) 
+        //it won't let me just do "(!((text.charAt(index25)) = extract))" D:<
+        if (!(temp_txt2 = extract)) {
+            temp_txt = "" + temp_txt + text.charAt(index25)
+        }
+    }
+    return parseFloat(temp_txt)
+}
+// block="how many $extract s is there in $text"
+// group="Values"
+export function how_many_s_is_there_in_ (text: string, extract: string) {
+    temp_num = 0
+    for (let index25 = 0; index25 <= text.length - 1; index25++) {
+        temp_txt2 = text.charAt(index25) 
+        //look at line 22 and you will see why I did this
+        if (temp_txt2 = extract) {
+            temp_num += 1
+        }
+    }
+    return temp_num
+}
 //% block="$letter 's location in the alphabet"
 //% group="Location"
 export function location_in_the_alphabet (letter: string) {
@@ -94,4 +120,5 @@ function read_from (text: string, _from: string) {
         return ""
     }
 }
+let temp_txt2=""
 }
