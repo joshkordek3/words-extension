@@ -1,5 +1,5 @@
 //% color=#bb8900 weight=60 icon="\uf035" block="Advanced Text"
-namespace Advanced.Text {
+namespace String {
    let temp_txt = ""
    let temp_num = 0
 //% block="extract numbers from $text"
