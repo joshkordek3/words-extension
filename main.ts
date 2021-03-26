@@ -1,3 +1,10 @@
+enum UntilFrom {
+//% block="Until"
+Until,
+
+//% block="From"
+From,
+}
 //% color=#bb8900 weight=60 icon="\uf035" block="Advanced Text"
 namespace String {
    let temp_txt = ""
@@ -5,6 +12,17 @@ namespace String {
 //% block="extract numbers from $text"
 //% group="Converting"
 export function extract_numbers_from (text: string) {
+    temp_txt = ""
+    for (let index2 = 0; index2 <= text.length - 1; index2++) {
+        if (!(alphabet().includes(text.charAt(index2)))) {
+            temp_txt = "" + temp_txt + text.charAt(index2)
+        }
+    }
+    return parseFloat(temp_txt)
+}
+// block="extract numbers from $text"
+// group="Converting"
+export function encode_number (text: string) {
     temp_txt = ""
     for (let index2 = 0; index2 <= text.length - 1; index2++) {
         if (!(alphabet().includes(text.charAt(index2)))) {
@@ -65,7 +83,7 @@ export function substring (text: string, num: number, length: number) {
 //% group="Reading"
 export function read_from_to_letters (text: string, _: string) {
     if (_.length == 3) {
-        return read_from_letter(text, "" + convertToText(index(text, read_untilfrom("until", _, "-")) + 1) + "-" + (index(text, read_untilfrom("from", _, "-")) + 1))
+        return read_from_letter(text, "" + convertToText(index(text, read_untilfrom(1, _, "-")) + 1) + "-" + (index(text, read_untilfrom(2, _, "-")) + 1))
     }
     return ""
 }
@@ -79,12 +97,12 @@ export function index (text: string, _this: string) {
     }
     return -1
 }
-//% block="read $text $untilfrom (until/from) $text2"
+//% block="read $text $untilfrom $text2"
 //% group="Reading"
-export function read_untilfrom (untilfrom: string, text: string, text2: string) {
-    if (untilfrom == "from") {
+export function read_untilfrom (untilfrom: UntilFrom, text: string, text2: string) {
+    if (untilfrom = 2) {
         return read_from(text, text2)
-    } else if (untilfrom == "until") {
+    } else if (untilfrom = 1) {
         return read_until(text, text2)
     }
     return ""
