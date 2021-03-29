@@ -1,9 +1,16 @@
 enum UntilFrom {
-//% block="Until"
-Until,
+    //% block="Until"
+    Until,
 
-//% block="From"
-From,
+    //% block="From"
+    From,
+}
+enum Types {
+    //% block="Number"
+    Number,
+
+    //% block="String"
+    String,
 }
 //% color=#bb8900 weight=60 icon="\uf035" block="Advanced Text"
 namespace String {
@@ -14,44 +21,61 @@ namespace String {
 export function extract_numbers_from (text: string) {
     temp_txt = ""
     for (let index2 = 0; index2 <= text.length - 1; index2++) {
-        if (!(alphabet().includes(text.charAt(index2)))) {
+        if (numbers().includes(text.charAt(index2))) {
             temp_txt = "" + temp_txt + text.charAt(index2)
         }
     }
     return parseFloat(temp_txt)
 }
-// block="extract numbers from $text"
-// group="Converting"
-export function encode_number (text: string) {
-    temp_txt = ""
-    for (let index2 = 0; index2 <= text.length - 1; index2++) {
-        if (!(alphabet().includes(text.charAt(index2)))) {
-            temp_txt = "" + temp_txt + text.charAt(index2)
-        }
+//% block="encode $text into a number"
+//% group="Converting"
+export function encode_text (text: string) {
+    temp_txt = "9"
+    for (let index2 = 0; index2 < text.length; index2++) {
+        temp_txt = "" + temp_txt + extend(convertToText(all_letters_and_syms().indexOf(text.charAt(index2))), 2, Types.Number)
     }
     return parseFloat(temp_txt)
 }
-// block="read everything except for $extract s from $text"
-// group="Reading"
+//% block="extend $text until its length becomes $length for the purpose of using it as a $purpose_type"
+//% group="Reading"
+//% inlineInputMode=inline
+export function extend (text: string, length: number, purpose_type: Types) {
+    if (purpose_type == Types.Number) {
+        if (not(10 ** length - text.length < 10)) {
+            text = "" + convertToText(10 ** length - text.length).substr(1, convertToText(10 ** length - text.length).length - 1) + text
+        }
+    } else if (purpose_type == Types.String) {
+        for(let i = length; i < text.length; i++) {
+            text = " " + text
+        }
+    }
+    return text
+}
+function not (oof: boolean) {
+    return (!(oof))
+}
+//% block="read everything except for $extract s from $text"
+//% group="Reading"
 export function extract__s_from (text: string, extract: string) {
     temp_txt = ""
     for (let index25 = 0; index25 <= text.length - 1; index25++) {
-        temp_txt2 = text.charAt(index25) 
-        //it won't let me just do "(!((text.charAt(index25)) = extract))" D:<
-        if (!(temp_txt2 = extract)) {
+        if (!((text.charAt(index25)) == extract)) {
             temp_txt = "" + temp_txt + text.charAt(index25)
         }
     }
     return parseFloat(temp_txt)
 }
-// block="how many $extract s is there in $text"
-// group="Values"
+//% block="every symbol on the keyboard"
+//% group="Reading"
+export function all_letters_and_syms () {
+    return "`~1!2@3#4$5%6^7&8*9(0)-_=+qQwWeErRtTyYuUiIoOpP[{]}\\|asdfghjklASDFGHJKL;:'zxcvbnmZXCVBNM,<.>/?\""
+}
+//% block="how many $extract s is there in $text"
+//% group="Values"
 export function how_many_s_is_there_in_ (text: string, extract: string) {
     temp_num = 0
-    for (let index25 = 0; index25 <= text.length - 1; index25++) {
-        temp_txt2 = text.charAt(index25) 
-        //look at line 22 and you will see why I did this
-        if (temp_txt2 = extract) {
+    for (let index26 = 0; index26 <= text.length - 1; index26++) {
+        if (text.charAt(index26) == extract) {
             temp_num += 1
         }
     }
@@ -100,9 +124,9 @@ export function index (text: string, _this: string) {
 //% block="read $text $untilfrom $text2"
 //% group="Reading"
 export function read_untilfrom (untilfrom: UntilFrom, text: string, text2: string) {
-    if (untilfrom = 2) {
+    if (untilfrom = UntilFrom.From) {
         return read_from(text, text2)
-    } else if (untilfrom = 1) {
+    } else if (untilfrom = UntilFrom.Until) {
         return read_until(text, text2)
     }
     return ""
@@ -138,5 +162,4 @@ function read_from (text: string, _from: string) {
         return ""
     }
 }
-let temp_txt2=""
 }
