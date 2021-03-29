@@ -27,14 +27,23 @@ export function extract_numbers_from (text: string) {
     }
     return parseFloat(temp_txt)
 }
-//% block="encode $text into a number"
-//% group="Converting"
-export function encode_text (text: string) {
+// block="encode $text into a number"
+// group="Converting"
+export function encode_text_not_in_use (text: string) {
     temp_txt = "9"
     for (let index2 = 0; index2 < text.length; index2++) {
         temp_txt = "" + temp_txt + extend(convertToText(all_letters_and_syms().indexOf(text.charAt(index2))), 2, Types.Number)
     }
     return parseFloat(temp_txt)
+}
+// block="decode $num into text"
+// group="Converting"
+export function decode_number_not_in_use (num: number) {
+    temp_txt = ""
+    for (let index2 = 1; index2 <= convertToText(num).length / 2; index2++) {
+        temp_txt = "" + temp_txt + all_letters_and_syms().charAt(parseFloat(convertToText(num).substr((index2 * 2) - 1, 2)))
+    }
+    return temp_txt
 }
 //% block="extend $text until its length becomes $length for the purpose of using it as a $purpose_type"
 //% group="Reading"
@@ -68,7 +77,7 @@ export function extract__s_from (text: string, extract: string) {
 //% block="every symbol on the keyboard"
 //% group="Reading"
 export function all_letters_and_syms () {
-    return "`~1!2@3#4$5%6^7&8*9(0)-_=+qQwWeErRtTyYuUiIoOpP[{]}\\|asdfghjklASDFGHJKL;:'zxcvbnmZXCVBNM,<.>/?\""
+    return " `~1!2@3#4$5%6^7&8*9(0)-_=+qQwWeErRtTyYuUiIoOpP[{]}\\|asdfghjklASDFGHJKL;:'zxcvbnmZXCVBNM,<.>/?\""
 }
 //% block="how many $extract s is there in $text"
 //% group="Values"
