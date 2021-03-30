@@ -45,6 +45,15 @@ export function decode_number_not_in_use (num: number) {
     }
     return temp_txt
 }
+//% block="convert $bool into a string"
+//% group="Converting"
+export function convert_bool (bool: boolean) {
+    if (bool) {
+        return "true"
+    } else {
+        return "false"
+    }
+}
 //% block="extend $text until its length becomes $length for the purpose of using it as a $purpose_type"
 //% group="Reading"
 //% inlineInputMode=inline
