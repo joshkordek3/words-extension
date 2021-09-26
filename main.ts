@@ -142,9 +142,9 @@ export function index (text: string, _this: string) {
 //% block="read $text $untilfrom $text2"
 //% group="Reading"
 export function read_untilfrom (untilfrom: UntilFrom, text: string, text2: string) {
-    if (untilfrom = UntilFrom.From) {
+    if (untilfrom == UntilFrom.From) {
         return read_from(text, text2)
-    } else if (untilfrom = UntilFrom.Until) {
+    } else if (untilfrom == UntilFrom.Until) {
         return read_until(text, text2)
     }
     return ""
